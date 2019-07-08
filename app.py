@@ -71,11 +71,11 @@ def indicator(color, text, id_value):
     )
 
 def connect_gp():
-    uri = f'postgresql+psycopg2://{GP_USER}:{GP_PWD}@{GP_HOST}:{GP_PORT}'
-    engine = create_engine(uri)
-    return engine.connect()
+    uri_gp = 'postgresql+psycopg2://' + GP_USER  + ':' + GP_PWD + '@' + GP_HOST + ':' + GP_PORT
+    engine_gp = create_engine(uri)
+    return engine_gp.connect()
 
 def connect_ga():
-    uri_ga = f'mysql://{GA_USER}:{GA_PWD}@{GA_HOST}/ga?charset=utf8'
+    uri_ga = 'mysql://' + GA_USER + ':' + GA_PWD + '@' + GA_HOST + '/ga?charset=utf8'
     engine_ga = create_engine(uri_ga, encoding="utf8", pool_recycle=3600)
     return engine_ga.connect()
