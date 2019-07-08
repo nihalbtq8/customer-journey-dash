@@ -152,7 +152,7 @@ layout = [
                     #html.P("Metrics By Country" ),
                     dcc.Graph(
                         id="choropleth_map",
-                        style={"height": "150%", "width": "150%"},
+                        style={"height": "150%", "width": "200%"},
                         config=dict(displayModeBar=False),
                     ),
                 ],

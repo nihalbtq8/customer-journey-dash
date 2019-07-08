@@ -7,6 +7,9 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dateutil.parser
 from sqlalchemy import create_engine
+from config import GP_USER, GP_PWD, GP_HOST, GP_PORT
+from config import GA_USER, GA_PWD, GA_HOST
+
 
 
 server = flask.Flask(__name__)
@@ -68,11 +71,11 @@ def indicator(color, text, id_value):
     )
 
 def connect_gp():
-    uri = 'postgresql+psycopg2://gpadmin:btq6@50.112.233.194:6432'
+    uri = f'postgresql+psycopg2://{GP_USER}:{GP_PWD}@{GP_HOST}:{GP_PORT}'
     engine = create_engine(uri)
     return engine.connect()
 
 def connect_ga():
-    uri_ga = 'mysql://master:sp3lVuPw@172.31.40.80/ga?charset=utf8'
+    uri_ga = f'mysql://{GA_USER}:{GA_PWD}@{GA_HOST}/ga?charset=utf8'
     engine_ga = create_engine(uri_ga, encoding="utf8", pool_recycle=3600)
     return engine_ga.connect()
