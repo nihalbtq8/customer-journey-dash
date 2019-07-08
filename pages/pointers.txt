@@ -1,0 +1,42 @@
+apps
+image
+static
+Procfile
+README.md
+app.py
+config.py
+index.py
+requirements.txt
+sfManager.py
+
+app.py
+======
+Main Flask app
+calls index.py
+
+
+callback output
+@app.callback(
+    Output("map", "figure"),
+    [Input("lead_source_dropdown", "value"), Input("leads_df", "children")],
+)
+def map_callback(status, df):
+    return whatever
+
+returns to layout using id
+dcc.Graph(
+id="map",
+
+
+index.py
+=======
+App layout and main tabs definitions
+Calls files in apps/
+
+apps/
+=====
+Files for each tabs.
+
+
+
+call
